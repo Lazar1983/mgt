@@ -1,23 +1,19 @@
 import React, {Component} from 'react';
-import logo from './logo.png';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import home from './pages/homepage/homepage';
+import Card from './components/card.component/card.component';
 
 class App extends Component {
   render () {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <a
-            className="App-link"
-            href="https://magic.wizards.com/en"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Magic: The Gathering
-          </a>
-        </header>
-      </div>
+      <Router>
+        <div className="container">
+          <Switch>
+            <Route exact path="/" component={home}/>
+            <Route path="/cards" component={Card}/>
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
